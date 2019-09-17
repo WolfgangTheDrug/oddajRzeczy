@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans&display=swap');
+@import "./settings/fonts";
+@import "./settings/colors";
+@import "~reset.css/reset.css";
+
+@mixin Btn($borderSize) {
+  background-color: $white;
+  border: $borderSize+px  solid $l-grey;
+  padding: $borderSize*3+px;
+}
+@mixin FlexDefault() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin Section($height) {
+  justify-content: space-evenly;
+  position: relative;
+  z-index: 1;
+  height: $height;
+  margin-bottom: 10px;
+}
+@mixin Marg($margTop, $margBottom){
+  margin: $margTop+px 0 $margBottom+px 0;
+}
+
+body {
+  font-family: $font-base, $alt-font;
+  * {
+    font-family: inherit;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .SectionTitleComp {
+    .SectionTitle {
+      @include Marg(55,25);
+      font-size: 32px;
+    }
+    .Decoration {
+      @include Marg(0,25);
+    }
+  }
+  .App{
+
+
+    .HomeHeader {
+      @include FlexDefault();
+
+      img.HomeHero {
+        width: 70vw;
+        margin-left: -25vw;
+      }
+
+      .HomeHeaderRight{
+        align-self: flex-start;
+
+        .TopMenu {
+          width: 50vw;
+
+
+          .TopMenuLogReg {
+            @include FlexDefault();
+            justify-content: flex-end;
+
+            .TopBtn {
+              @include Btn(1);
+            }
+          }
+
+          .TopMenuNav {
+            @include FlexDefault();
+            justify-content: flex-end;
+            flex-direction: row;
+
+
+            li {
+              @include Btn(2);
+            }
+          }
+        }
+
+        h1.HeaderTitle {
+          font-size: $h1;/*
+          font-family: $font-base;*/
+        }
+
+        img.Decoration {
+          width: 160px;
+        }
+
+        .HeaderBtns {
+
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+
+          .HeaderBtn {
+            word-spacing: 100vw;
+            margin: auto;
+            text-transform: uppercase;
+            width: 200px;
+            line-height: 1em;
+            padding: 10px;
+            border: 1px solid $l-grey;
+          }
+        }
+      }
+    }
+
+
+    .Home {
+      position: relative;
+      z-index: 0;
+
+      & > * > *{
+        height: 500px;
+      }
+      .HomeHeader {
+
+      }
+
+      .HomeThreeColumns {
+        @include FlexDefault();
+        @include Section(384px);
+        background: transparent url('../assests/3 Columns Background.png') 0 0 no-repeat padding-box;
+
+
+        .StatsContainer {
+          width: 25%;
+          @include Marg(46,86);
+
+          .StatsNum {
+
+            padding: 10px;
+            font-size: 90px;
+          }
+          .StatsTitle{
+
+            padding: 10px;
+            font-size: 18px;
+          }
+          .StatsDescr{
+            font-size: 16px;
+            padding: 10px;
+          }
+        }
+      }
+
+      .HomeSimpleSteps {
+        @include FlexDefault();
+        @include Section(624px);
+        flex-direction: column;
+
+        .HomeSimpleStepsTitle {
+          @include Marg(55,25);
+
+        }
+
+        .HomeSimpleStepsBg {
+          @include FlexDefault();
+          flex-direction: row;
+          height: 325px;
+          width: 100%;
+          background-color: #F0F1F1;
+
+          .StepContainer {
+            height: 172px;
+            width: 130px;
+            margin: 0 60px 0 60px; /*nie poprawiać tu marginesów na mixin Marg!!*/
+
+            .StepImg{}
+            .StepTitle{}
+            .Line {
+              border: 1px solid $l-grey;
+              width: 70px;
+              margin: 8px 20% 8px 20%;
+            }
+            .StepDescr{
+              font-size: 16px;
+            }
+          }
+        }
+        .HomeSimpleStepsBtn{
+          @include Marg(35,80);
+          @include FlexDefault();
+          height: 120px;
+          width: 310px;
+          text-transform: uppercase;
+          border: 1px solid $l-grey;
+
+          .HomeSimpleStepsBtnTxt {
+            font-size: 36px;
+            width: 124px;
+          }
+        }
+      }
+
+      .HomeAboutUs{
+        @include FlexDefault();
+        @include Section(545px);
+        background-color: #F0F1F1;
+
+        .HomeAboutUsLeft {
+          @include FlexDefault();
+          flex-direction: column;
+          width: 50%;
+
+          p {
+            width: 557px;
+            font-size: 26px;
+            margin: 20px 140px 50px 140px;
+          }
+
+          img {
+            width: 200px;
+            @include Marg(6,5);
+          }
+
+          .Signature {
+            width: 150px;
+            align-self: flex-end;
+            margin-right: 100px;
+          }
+        }
+        .HomeAboutUsRight {
+          width: 50%;
+          flex-direction: column;
+        }
+
+      }
+
+      .HomeWhoWeHelp {
+        @include FlexDefault();
+        @include Section(794px);
+        flex-direction: column;
+
+        .HomeWhoWeHelpButtons {
+          width: 650px;
+          margin-bottom: 60px;
+          @include FlexDefault();
+
+          .HomeWhoWeHelpButton {
+            flex-direction: column;
+            width: 170px;
+            height: 70px;
+          }
+        }
+        .ScrollContainer {
+          position: relative;
+          height: 400px;
+          width: 400px;
+          padding: 20px;
+          overflow-x: scroll;
+          overflow-y: scroll;
+          margin-bottom: 100px;
+          transform: rotate(90deg);
+
+          .ScrollElement {
+            height: inherit;
+            width: inherit;
+
+
+            & > * {
+              transform: rotate(-90deg);
+              width: inherit;
+              height: inherit;
+
+            }
+          }
+        }
+      }
+
+      .HomeContactUs {
+        @include FlexDefault();
+        @include Section(1026px);
+      }
+
+    }
+  }
+}
