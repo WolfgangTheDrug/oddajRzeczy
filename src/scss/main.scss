@@ -233,7 +233,7 @@ body {
 
       }
 
-      .HomeWhoWeHelp {
+      .HomeWhoWeHelp { /*guziki!!!*/
         @include FlexDefault();
         @include Section(794px);
         flex-direction: column;
@@ -247,28 +247,25 @@ body {
             flex-direction: column;
             width: 170px;
             height: 70px;
+
+            &.active {
+              border: 1px dashed red;
+            }
           }
         }
-        .ScrollContainer {
-          position: relative;
-          height: 400px;
+        .ScrollContainer {/*divy!!!*/
+          height: 100px;
           width: 400px;
           padding: 20px;
-          overflow-x: scroll;
-          overflow-y: scroll;
           margin-bottom: 100px;
-          transform: rotate(90deg);
 
           .ScrollElement {
             height: inherit;
             width: inherit;
+            display: none;
 
-
-            & > * {
-              transform: rotate(-90deg);
-              width: inherit;
-              height: inherit;
-
+            &.active {
+              display: block;
             }
           }
         }
