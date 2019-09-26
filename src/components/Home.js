@@ -5,6 +5,7 @@ import HomeSimpleSteps from './HomeSimpleSteps';
 import HomeAboutUs from './HomeAboutUs';
 import HomeWhoWeHelp from './HomeWhoWeHelp';
 import HomeContactUs from './HomeContactUs';
+import Footer from './Footer'
 import {Element} from 'react-scroll';
 
 class Home extends Component {
@@ -28,6 +29,7 @@ class Home extends Component {
                 <Element name={'Contact'}>
                     <HomeContactUs/>
                 </Element>
+                <Footer/>
             </div>
         );
     }

@@ -273,9 +273,85 @@ body {
 
       .HomeContactUs {
         @include FlexDefault();
-        @include Section(1026px);
-      }
+        @include Section(800px);
 
+        background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url('../assests/Background-Contact-Form.jpg') no-repeat;
+        background-size: 90%;
+
+        .ContactUsRightSide {
+          width: 45vw;
+          margin-left: 55vw;
+          margin-top: 95px;
+          align-self: flex-start;
+
+          .ContactUsForm {
+            @include FlexDefault();
+            flex-direction: column;
+
+            .inputsDiv, .textareaDiv {
+              @include FlexDefault();
+              height: 100px;
+              width: 100%;
+
+              .input {
+                @include FlexDefault();
+                flex-direction: column;
+                margin-left: 20px;
+
+                & > * {
+                  border: none;
+                  border-bottom: 1px solid $l-grey;
+                }
+
+                label {
+                  width: 100%;
+                  border: none;
+                  text-align: left;
+                }
+              }
+            }
+            .textareaDiv {
+              margin-left: 20px;
+              width: calc(50% + 20px);
+              .input {
+                width: 100%;
+                textarea {
+                  width: 100%;
+
+                }
+              }
+            }
+          }
+        }
+      }
+      .Footer {
+        margin: 15px;
+        @include FlexDefault();
+
+        .FooterSocialMediaDiv {
+          height: 30px;
+          width: 70px;
+          @include FlexDefault();
+          justify-content: space-between;
+
+          .SocMedIcon {
+            height: 30px;
+            width: 30px;
+
+            &.fb {
+              background-image: url('../assests/Facebook.svg');
+            }
+            &.ig {
+              background-image: url("../assests/Instagram.svg");
+            }
+          }
+        }
+        span {
+          height: 30px;
+          @include FlexDefault();
+          width: calc(100% - 60px + 10px);
+        }
+      }
     }
   }
 }
